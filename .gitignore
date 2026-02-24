@@ -1,0 +1,36 @@
+# Environment Variables
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# IDEs
+.idea/
+.vscode/
+
+# Streamlit
+.streamlit/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Dynamic charts created by the agent
+frontend/charts/*.png
+
+# ML Models
+# If you want to train it on the fly, you might ignore the pkl too,
+# but it's usually okay to commit the trained model if small.
+backend/models/*.pkl
