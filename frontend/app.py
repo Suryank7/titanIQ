@@ -11,7 +11,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 # from backend.agent.llm import chat_with_agent
 from backend.tools.survival_predictor_tool import predict_survival
 
-
 # Use local directory for serving charts
 CHART_DIR = "frontend/charts"
 os.makedirs(CHART_DIR, exist_ok=True)
@@ -66,7 +65,7 @@ if prompt := st.chat_input("Ask a question about the Titanic dataset..."):
             # response = chat_with_agent(prompt, st.session_state.session_id)
             # response_text = response.get("text", "")
             # visualizations = response.get("visualizations", [])
-              if "predict" in prompt.lower() or "survival" in prompt.lower():
+            if "predict" in prompt.lower() or "survival" in prompt.lower():
 
                 # Example default values (replace with parsed values later if needed)
                 result = predict_survival(
@@ -100,9 +99,10 @@ if prompt := st.chat_input("Ask a question about the Titanic dataset..."):
                     st.image(vis, use_column_width=True)
             
             st.session_state.messages.append({
-                "role": "assistant", 
+                "role": "assistant",
                 "content": response_text,
                 "visualizations": valid_viz
             })
+
         except Exception as e:
             message_placeholder.error(f"Failed to execute agent: {e}")
