@@ -1,11 +1,15 @@
+# Backend
 fastapi==0.110.0
 uvicorn==0.29.0
+
+# Frontend
 streamlit==1.32.2
 
-# LangChain ecosystem (compatible set)
+# LangChain Ecosystem (aligned versions)
 langchain==1.2.10
-langchain-groq>=0.1.9
-langgraph>=1.0.0
+langchain-core==1.2.10
+langchain-groq==0.1.9
+langgraph==1.0.9
 
 # Data & ML
 pandas==2.2.1
