@@ -7,8 +7,10 @@ import sys
 # Add project root to sys.path to allow importing from frontend and backend
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from frontend.components.simulator import render_simulator
-from backend.agent.llm import chat_with_agent
+# from frontend.components.simulator import render_simulator
+# from backend.agent.llm import chat_with_agent
+from backend.tools.survival_predictor_tool import predict_survival
+
 
 # Use local directory for serving charts
 CHART_DIR = "frontend/charts"
@@ -61,9 +63,28 @@ if prompt := st.chat_input("Ask a question about the Titanic dataset..."):
         
         try:
             # Call agent locally
-            response = chat_with_agent(prompt, st.session_state.session_id)
-            response_text = response.get("text", "")
-            visualizations = response.get("visualizations", [])
+            # response = chat_with_agent(prompt, st.session_state.session_id)
+            # response_text = response.get("text", "")
+            # visualizations = response.get("visualizations", [])
+              if "predict" in prompt.lower() or "survival" in prompt.lower():
+
+                # Example default values (replace with parsed values later if needed)
+                result = predict_survival(
+                    pclass=3,
+                    sex="male",
+                    age=25,
+                    fare=7.25,
+                    embarked="S"
+                )
+
+                response_text = result
+                visualizations = []
+
+            else:
+                # Normal agent call
+                response = chat_with_agent(prompt, st.session_state.session_id)
+                response_text = response.get("text", "")
+                visualizations = response.get("visualizations", [])
             
             # Verify paths exist
             valid_viz = []
