@@ -7,7 +7,7 @@ import sys
 # Add project root to sys.path to allow importing from frontend and backend
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# from frontend.components.simulator import render_simulator
+from frontend.components.simulator import render_simulator
 # from backend.agent.llm import chat_with_agent
 from backend.tools.survival_predictor_tool import predict_survival
 
