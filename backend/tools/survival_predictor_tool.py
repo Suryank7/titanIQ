@@ -1,14 +1,14 @@
 import pickle
 import os
 import pandas as pd
-# from langchain_core.tools import tool
-# from langchain.tools import tool
-# from langchain.tools import tool
-# from langchain_core.tools import tool
+from langchain_core.tools import tool
+from langchain.tools import tool
+from langchain.tools import tool
+from langchain_core.tools import tool
 
 MODEL_PATH = "backend/models/survival_model.pkl"
 
-# @tool
+@tool
 def predict_survival(pclass: int, sex: str, age: float, fare: float, embarked: str) -> str:
     """
     Predicts the survival probability of a passenger on the Titanic using an ML model.
