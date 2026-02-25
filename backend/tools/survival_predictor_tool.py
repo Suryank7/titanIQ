@@ -1,7 +1,8 @@
 import pickle
 import os
 import pandas as pd
-from langchain_core.tools import tool
+# from langchain_core.tools import tool
+from langchain.tools import tool
 
 MODEL_PATH = "backend/models/survival_model.pkl"
 
