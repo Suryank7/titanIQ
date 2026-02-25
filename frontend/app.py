@@ -8,7 +8,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from frontend.components.simulator import render_simulator
-# from backend.agent.llm import chat_with_agent
+from backend.agent.llm import chat_with_agent
 from backend.tools.survival_predictor_tool import predict_survival
 
 # Use local directory for serving charts
